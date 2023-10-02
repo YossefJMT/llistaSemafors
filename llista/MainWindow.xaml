@@ -1,0 +1,52 @@
+﻿<Window x:Class="llista.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:llista"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <ListBox x:Name="colalist" Margin="49,44,476,217">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontWeight="Bold" Text="{Binding nom}"></TextBlock>
+                        <TextBlock Text="{Binding edat}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <ListBox x:Name="locallist" Margin="476,44,49,217">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontWeight="Bold" Text="{Binding nom}"></TextBlock>
+                        <TextBlock Text="{Binding edat}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Content="afegir" HorizontalAlignment="Left" Margin="352,346,0,0" VerticalAlignment="Top" Width="120" Click="Afegir_Cua" Background="#FFF3F3F3"/>
+        <TextBox x:Name="nom" HorizontalAlignment="Left" Margin="280,307,0,0" TextWrapping="Wrap" Text="Josep" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="edat" HorizontalAlignment="Left" Margin="424,310,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="424,287,0,0" TextWrapping="Wrap" Text="EDAT" VerticalAlignment="Top" Width="120" />
+        <TextBlock HorizontalAlignment="Left" Margin="280,284,0,0" TextWrapping="Wrap" Text="NOM" VerticalAlignment="Top" Width="120"/>
+
+        <Button Content="Eliminar" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="108" Click="Eliminar_Focus"/>
+        <Button Content="Mover" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top" Width="108" Click="Moure_Focus"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="es-es" Text="LLISTA CUA"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="661,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"><Run Language="es-es" Text="INTERIOR LOCAL"/></TextBlock>
+        <Button Content="vaciar" HorizontalAlignment="Left" Margin="216,225,0,0" VerticalAlignment="Top" Width="108" Click="vaciar_cola"/>
+        <Button Content="vaciar" HorizontalAlignment="Left" Margin="482,225,0,0" VerticalAlignment="Top" Width="108" Click="vaciar_local"/>
+        <Button Content="mover todo" HorizontalAlignment="Left" Margin="49,225,0,0" VerticalAlignment="Top" Width="108" Click="mover_cola"/>
+        <Button Content="mover todo" HorizontalAlignment="Left" Margin="643,225,0,0" VerticalAlignment="Top" Width="108" Click="mover_local"/>
+
+
+
+    </Grid>
+</Window>

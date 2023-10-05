@@ -1,0 +1,18 @@
+﻿<Window x:Class="llista.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:llista"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="nom" HorizontalAlignment="Left" Margin="280,224,0,0" TextWrapping="Wrap" Text="Josep" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="edat" HorizontalAlignment="Left" Margin="424,227,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="424,204,0,0" TextWrapping="Wrap" Text="EDAT" VerticalAlignment="Top" Width="120" />
+        <TextBlock HorizontalAlignment="Left" Margin="280,201,0,0" TextWrapping="Wrap" Text="NOM" VerticalAlignment="Top" Width="120"/>
+        <Button Content="OK" HorizontalAlignment="Left" Height="36" Margin="294,294,0,0" VerticalAlignment="Top" Width="92" Click="guardar"/>
+        <Button Content="CANCEL" HorizontalAlignment="Left" Height="36" Margin="438,294,0,0" VerticalAlignment="Top" Width="92" Click="cancelar"/>
+
+    </Grid>
+</Window>

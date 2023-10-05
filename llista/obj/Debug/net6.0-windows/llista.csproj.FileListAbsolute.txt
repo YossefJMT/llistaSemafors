@@ -18,3 +18,5 @@ C:\Users\yosse\source\repos\llista\llista\obj\Debug\net6.0-windows\refint\llista
 C:\Users\yosse\source\repos\llista\llista\obj\Debug\net6.0-windows\llista.pdb
 C:\Users\yosse\source\repos\llista\llista\obj\Debug\net6.0-windows\llista.genruntimeconfig.cache
 C:\Users\yosse\source\repos\llista\llista\obj\Debug\net6.0-windows\ref\llista.dll
+C:\Users\yosse\source\repos\llista\llista\obj\Debug\net6.0-windows\Window1.g.cs
+C:\Users\yosse\source\repos\llista\llista\obj\Debug\net6.0-windows\Window1.baml

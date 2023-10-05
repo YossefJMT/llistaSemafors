@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <ListBox x:Name="colalist" Margin="49,44,476,217">
+        <ListBox SelectionMode="Multiple" x:Name="colalist" Margin="49,44,476,217">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -20,7 +20,7 @@
         </ListBox>
 
 
-        <ListBox x:Name="locallist" Margin="476,44,49,217">
+        <ListBox SelectionMode="Multiple" x:Name="locallist" Margin="476,44,49,217">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -31,11 +31,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="afegir" HorizontalAlignment="Left" Margin="352,346,0,0" VerticalAlignment="Top" Width="120" Click="Afegir_Cua" Background="#FFF3F3F3"/>
-        <TextBox x:Name="nom" HorizontalAlignment="Left" Margin="280,307,0,0" TextWrapping="Wrap" Text="Josep" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="edat" HorizontalAlignment="Left" Margin="424,310,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="424,287,0,0" TextWrapping="Wrap" Text="EDAT" VerticalAlignment="Top" Width="120" />
-        <TextBlock HorizontalAlignment="Left" Margin="280,284,0,0" TextWrapping="Wrap" Text="NOM" VerticalAlignment="Top" Width="120"/>
+        <Button Content="afegir" HorizontalAlignment="Left" Margin="352,289,0,0" VerticalAlignment="Top" Width="120" Click="consultarDades" Background="#FFF3F3F3"/>
 
         <Button Content="Eliminar" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="108" Click="Eliminar_Focus"/>
         <Button Content="Mover" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top" Width="108" Click="Moure_Focus"/>
@@ -45,6 +41,7 @@
         <Button Content="vaciar" HorizontalAlignment="Left" Margin="482,225,0,0" VerticalAlignment="Top" Width="108" Click="vaciar_local"/>
         <Button Content="mover todo" HorizontalAlignment="Left" Margin="49,225,0,0" VerticalAlignment="Top" Width="108" Click="mover_cola"/>
         <Button Content="mover todo" HorizontalAlignment="Left" Margin="643,225,0,0" VerticalAlignment="Top" Width="108" Click="mover_local"/>
+        <Button Content="editar" HorizontalAlignment="Left" Margin="352,358,0,0" VerticalAlignment="Top" Width="120" Click="editarDades" Background="#FFF3F3F3"/>
 
 
 

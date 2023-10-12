@@ -30,6 +30,8 @@ namespace llista
                 Persona p = new();
                 p.nom = this.nom.Text;
                 p.edat = Convert.ToInt32(this.edat.Text);
+                p.tempsEspera = Convert.ToInt32(this.inpTempsCua.Text);
+                p.tempsInterior = Convert.ToInt32(this.inpTempsInterior.Text);
 
                 return p; 
             }

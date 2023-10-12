@@ -7,10 +7,22 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="nom" HorizontalAlignment="Left" Margin="280,224,0,0" TextWrapping="Wrap" Text="Josep" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="edat" HorizontalAlignment="Left" Margin="424,227,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="424,204,0,0" TextWrapping="Wrap" Text="EDAT" VerticalAlignment="Top" Width="120" />
-        <TextBlock HorizontalAlignment="Left" Margin="280,201,0,0" TextWrapping="Wrap" Text="NOM" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="280,121,0,0" TextWrapping="Wrap" Text="NOM" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nom" HorizontalAlignment="Left" Margin="280,144,0,0" TextWrapping="Wrap" Text="Josep" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="424,124,0,0" TextWrapping="Wrap" Text="EDAT" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="edat" HorizontalAlignment="Left" Margin="424,147,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="280,186,0,0" TextWrapping="Wrap" Text="Temps maxim d'espera" VerticalAlignment="Top" Width="139" />
+        <TextBox x:Name="inpTempsCua" HorizontalAlignment="Left" Margin="280,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Center" Width="81"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="424,186,0,0" TextWrapping="Wrap" Text="Temps interior local" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="inpTempsInterior" HorizontalAlignment="Left" Margin="424,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Center" Width="81"/>
+
+
+
+
         <Button Content="OK" HorizontalAlignment="Left" Height="36" Margin="294,294,0,0" VerticalAlignment="Top" Width="92" Click="guardar"/>
         <Button Content="CANCEL" HorizontalAlignment="Left" Height="36" Margin="438,294,0,0" VerticalAlignment="Top" Width="92" Click="cancelar"/>
 

@@ -11,15 +11,18 @@ namespace llista
     public partial class MainWindow : Window
     {
         // Utiliza ObservableCollection para que los cambios se reflejen en la interfaz de usuario automáticamente
-        List<Persona> cola_list = new List<Persona>();
-        List<Persona> local_list = new List<Persona>();
+        ObservableCollection<Persona> cola_list = new ObservableCollection<Persona>();
+        ObservableCollection<Persona> local_list = new ObservableCollection<Persona>();
+        ObservableCollection<Persona> historial_list = new ObservableCollection<Persona>();
+        Local Local;
 
         public MainWindow()
         {
             InitializeComponent();
             this.colalist.ItemsSource = cola_list;
             this.locallist.ItemsSource = local_list;
-
+            this.historiallist.ItemsSource = historial_list;
+            this.Local = new Local(2, cola_list, local_list, historial_list);
         }
 
 
@@ -47,7 +50,6 @@ namespace llista
             {
                 // Obtén el elemento seleccionado y elimínalo de la lista
                 Persona personaSeleccionada = (Persona)colalist.SelectedItem;
-                cola_list.Remove(personaSeleccionada);
 
                 Window1 finestra = new Window1();
                 finestra.Persona = personaSeleccionada;
@@ -55,7 +57,13 @@ namespace llista
 
                 if (result.HasValue && result.Value)
                 {
-                    Afegir_Cua(finestra.Persona);
+                    cola_list.Remove(personaSeleccionada);
+                    bool existeix = personaExisteix(finestra.Persona);
+                    // Si no existe, crea una nueva persona y agrégala a cola_list
+                    if (existeix == false)
+                    {
+                        Afegir_Cua(finestra.Persona);
+                    }
                     MessageBox.Show("DADA GUARDADA.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
@@ -71,13 +79,10 @@ namespace llista
                 this.colalist.Items.Refresh();
             }
 
-
         }
 
-        
-        private void Afegir_Cua(Persona persona)
+        private bool personaExisteix(Persona persona)
         {
-
             // Verifica si la persona ya existe en cola_list o local_list
             bool existeEnCola = cola_list.Any(p => p.nom == persona.nom && p.edat == persona.edat);
             bool existeEnLocal = local_list.Any(p => p.nom == persona.nom && p.edat == persona.edat);
@@ -86,13 +91,18 @@ namespace llista
             {
                 // Muestra un mensaje de aviso si la persona ya existe
                 MessageBox.Show("Esta persona ya existe en la lista.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return true;
             }
             else
             {
-                // Si no existe, crea una nueva persona y agrégala a cola_list
-                cola_list.Add(persona);
-                this.colalist.Items.Refresh();
+                // Si no existe, devuelve false para dar a entender que no existe
+                return false;
             }
+        }
+        
+        private void Afegir_Cua(Persona persona)
+        {
+            Local.PosarCua(persona);
         }
         
 
@@ -247,6 +257,12 @@ namespace llista
 
             // Actualiza las vistas
             this.locallist.Items.Refresh();
+        }
+
+        private void vaciar_historial(object sender, RoutedEventArgs e)
+        {
+            historial_list.Clear();
+            this.historiallist.Items.Refresh();
         }
     }
 }

@@ -6,42 +6,91 @@
         xmlns:local="clr-namespace:llista"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    
+    <Window.Resources>
+        <Style x:Key="ActiveButtonStyle" TargetType="Button">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedItems.Count, ElementName=colalist}" Value="0">
+                    <Setter Property="IsEnabled" Value="True" />
+                </DataTrigger>
+                
+                <DataTrigger Binding="{Binding SelectedItems.Count, ElementName=locallist}" Value="0">
+                    <Setter Property="IsEnabled" Value="True" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+        
 
-        <ListBox SelectionMode="Multiple" x:Name="colalist" Margin="49,44,476,217">
+        <Grid>
+
+        <ListBox SelectionMode="Multiple" x:Name="colalist" Margin="157,44,494,85">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontWeight="Bold" Text="{Binding nom}"></TextBlock>
-                        <TextBlock Text="{Binding edat}"></TextBlock>
+                        <TextBlock FontWeight="Bold" Text="{Binding nom}"/>
+                        <TextBlock Text="{Binding edat}"/>
+                        <TextBlock>
+                            <Run Text="Espera: "/>
+                            <Run FontWeight="Bold" Text="{Binding tempsEspera}"/>
+                            <Run Text=" Interior: "/>
+                            <Run FontWeight="Light" Text="{Binding tempsInterior}"/>
+                        </TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
 
-        <ListBox SelectionMode="Multiple" x:Name="locallist" Margin="476,44,49,217">
+        <ListBox SelectionMode="Multiple" x:Name="locallist" Margin="507,49,144,85">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontWeight="Bold" Text="{Binding nom}"></TextBlock>
-                        <TextBlock Text="{Binding edat}"></TextBlock>
+                        <TextBlock FontWeight="Bold" Text="{Binding nom}"/>
+                        <TextBlock Text="{Binding edat}"/>
+                        <TextBlock>
+                            <Run Text="Espera: "/>
+                            <Run FontWeight="Light" Text="{Binding tempsEspera}"/>
+                            <Run Text=" Interior: "/>
+                            <Run FontWeight="Bold" Text="{Binding tempsInterior}"/>
+                        </TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="afegir" HorizontalAlignment="Left" Margin="352,289,0,0" VerticalAlignment="Top" Width="120" Click="consultarDades" Background="#FFF3F3F3"/>
+        <Button Content="afegir" HorizontalAlignment="Center" Margin="0,129,0,0" VerticalAlignment="Top" Width="120" Click="consultarDades" Background="#FFF3F3F3"/>
 
-        <Button Content="Eliminar" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="108" Click="Eliminar_Focus"/>
-        <Button Content="Mover" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top" Width="108" Click="Moure_Focus"/>
-        <TextBlock HorizontalAlignment="Left" Margin="49,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="es-es" Text="LLISTA CUA"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="661,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"><Run Language="es-es" Text="INTERIOR LOCAL"/></TextBlock>
-        <Button Content="vaciar" HorizontalAlignment="Left" Margin="216,225,0,0" VerticalAlignment="Top" Width="108" Click="vaciar_cola"/>
-        <Button Content="vaciar" HorizontalAlignment="Left" Margin="482,225,0,0" VerticalAlignment="Top" Width="108" Click="vaciar_local"/>
-        <Button Content="mover todo" HorizontalAlignment="Left" Margin="49,225,0,0" VerticalAlignment="Top" Width="108" Click="mover_cola"/>
-        <Button Content="mover todo" HorizontalAlignment="Left" Margin="643,225,0,0" VerticalAlignment="Top" Width="108" Click="mover_local"/>
-        <Button Content="editar" HorizontalAlignment="Left" Margin="352,358,0,0" VerticalAlignment="Top" Width="120" Click="editarDades" Background="#FFF3F3F3"/>
+        <Button Content="Eliminar" HorizontalAlignment="Center" Margin="0,84,0,0" VerticalAlignment="Top" Width="108" Click="Eliminar_Focus" Style="{StaticResource ActiveButtonStyle}" />
+        <Button Content="Mover" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="108" Click="Moure_Focus"/>
+        <TextBlock HorizontalAlignment="Left" Margin="157,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="es-es" Text="LLISTA CUA"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="566,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"><Run Language="es-es" Text="INTERIOR LOCAL"/></TextBlock>
+        <Button Content="vaciar" HorizontalAlignment="Left" Margin="253,362,0,0" VerticalAlignment="Top" Width="53" Click="vaciar_cola"/>
+        <Button Content="vaciar" HorizontalAlignment="Left" Margin="507,362,0,0" VerticalAlignment="Top" Width="57" Click="vaciar_local"/>
+        <Button Content="mover todo" HorizontalAlignment="Left" Margin="157,362,0,0" VerticalAlignment="Top" Width="83" Click="mover_cola"/>
+        <Button Content="mover todo" HorizontalAlignment="Left" Margin="573,362,0,0" VerticalAlignment="Top" Width="83" Click="mover_local"/>
+        <Button Content="editar" HorizontalAlignment="Center" Margin="0,179,0,0" VerticalAlignment="Top" Width="120" Click="editarDades" Background="#FFF3F3F3"/>
+        
+        <ListBox SelectionMode="Multiple" x:Name="historiallist" Margin="335,242,316,19">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontWeight="Bold" Text="{Binding nom}"/>
+                        <TextBlock Text="{Binding edat}"/>
+                        <TextBlock>
+                            <Run Text="Espera: "/>
+                            <Run FontWeight="Light" Text="{Binding tempsEspera}"/>
+                            <Run Text=" Interior: "/>
+                            <Run FontWeight="Light" Text="{Binding tempsInterior}"/>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="335,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="es-es" Text="HISTORIAL"/></TextBlock>
+        <Button Content="vaciar" HorizontalAlignment="Left" Margin="400,217,0,0" VerticalAlignment="Top" Width="72" Click="vaciar_historial"/>
 
 
 
